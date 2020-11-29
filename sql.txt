@@ -1,0 +1,19 @@
+create table devgroups (
+    id int auto_increment,
+    name varchar(15),
+    primary key(id)
+) 
+ 
+ create table meeting (
+ 	id int auto_increment,
+     groupID int not null,
+     meetingStart datetime not null,
+     meetingEnd datetime not null,
+     description varchar(80),
+    room varchar(5),
+     primary key(id),
+     foreign key(groupID) references devgroups(id)
+ )
+
+insert into meeting (groupID, meetingStart, meetingEnd, description, room)
+values (4, "2020-11-30 10:00", "2020-11-30 11:30", "meeting for group4", "a3")
